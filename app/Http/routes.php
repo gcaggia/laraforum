@@ -26,7 +26,8 @@ Route::get('/mail', function () {
 
 Route::get('/', function () {
 
-	$categories = DB::table('categories')->get();
+	// $categories = DB::table('categories')->get();
+	$categories = App\Category::all();
 
     return view('welcome', compact('categories'));
 
