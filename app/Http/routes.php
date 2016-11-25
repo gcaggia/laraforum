@@ -25,7 +25,11 @@ Route::get('/mail', function () {
 });
 
 Route::get('/', function () {
-    return view('welcome');
+
+	$categories = DB::table('categories')->get();
+
+    return view('welcome', compact('categories'));
+
 });
 
 Route::auth();
