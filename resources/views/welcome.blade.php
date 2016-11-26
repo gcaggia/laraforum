@@ -1,23 +1,19 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-default">
-                <div class="panel-heading">LaraForum</div>
+<!-- Title of the page -->
+@section('page-title', 'LaraForum - Home')
 
-                <div class="panel-body">
-                    <h1>Welcome on LaraForum</h1>
+<!-- Title of the panel -->
+@section('panel-title', 'LaraForum')
 
-                    <ul>
-                        @foreach($categories as $categorie)
-                            <li><a href="#">{{$categorie->title}}</a></li>
-                        @endforeach
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<!-- Main title in the page -->
+@section('main-title' , 'Welcome on LaraForum')
+
+<!-- content of the page -->
+@section('main-content')
+    <ul>
+        @foreach($categories as $categorie)
+            <li><a href="#">{{$categorie->title}}</a></li>
+        @endforeach
+    </ul>
 @endsection
