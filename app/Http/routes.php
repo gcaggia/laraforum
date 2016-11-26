@@ -11,18 +11,9 @@
 |
 */
 
-Route::get('/mail', function () {
 
-    $data = [
-    	'title'   => 'welcome',
-    	'content' => 'A message to say hello !'
-    ];
-
-    Mail::send('email.welcome', $data, function($message){
-    	$message->to(env('MAIL_PERSO'), 'laraforum')->subject('Welcome to Laraforum');
-    });
-
-});
+Route::auth();
+Route::get('/home', 'HomeController@index');
 
 Route::get('/', function () {
 
@@ -33,6 +24,9 @@ Route::get('/', function () {
 
 });
 
-Route::auth();
+Route::get('/{category}', 'CategoryController@index');
 
-Route::get('/home', 'HomeController@index');
+
+
+
+

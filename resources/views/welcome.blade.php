@@ -13,7 +13,7 @@
 @section('main-content')
     <ul>
         @foreach($categories as $categorie)
-            <li><a href="#">{{$categorie->title}}</a></li>
+            <li><a href="/{{$categorie->title}}">{{$categorie->title}}</a></li>
         @endforeach
     </ul>
 @endsection
