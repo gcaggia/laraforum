@@ -10,7 +10,14 @@ class DatabaseSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
-        $this->call(CategoryTableSeeder::class);
+    {	
+
+    	// Users Table
+    	$this->call(UsersTableSeeder::class);
+        $this->command->info('Users Table seeded.');
+
+        // Categories Table
+        $this->call(CategoriesTableSeeder::class);
+        $this->command->info('Categories Table seeded.');
     }
 }
