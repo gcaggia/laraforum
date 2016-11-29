@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 
+use Faker\Factory as Faker;
+
 class PostsPoolsTableSeeder extends Seeder
 {
     /**
@@ -11,6 +13,29 @@ class PostsPoolsTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+
+        DB::table('postsPolls')->truncate();
+
+        // Fake Topics
+        $faker = Faker::create();
+
+        foreach (range(1,5) as $index) {
+
+        	$category = DB::table('categories')->where('id', $index)->first();
+
+        	foreach (range(1,6) as $subIndex) {
+
+        		DB::table('postsPolls')->insert([
+		        	'user_id'     => mt_rand(1,100), 
+		        	'category_id' => $index, 
+		        	'title' => $category->title . ' on ' 
+		        	   . $faker->sentence($nbWords = 4, $variableNbWords = true), 
+		        	'created_at'  => new DateTime, 
+		        	'updated_at'  => new DateTime,
+		        ]);
+            
+        	}
+            
+        }
     }
 }

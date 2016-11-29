@@ -18,13 +18,13 @@ class UsersTableSeeder extends Seeder
 
         // Real user : me
         User::create(['name'    => env('NAME_PERSO'), 
-        		      'email'   => env('MAIL_PERSO'), 
-        		      'password'=> bcrypt(env('NAME_PERSO'))]);
+        		          'email'   => env('MAIL_PERSO'), 
+        		          'password'=> bcrypt(env('NAME_PERSO'))]);
 
         // Fake users 
         $faker = Faker::create();
 
-        foreach (range(1,10) as $index) {
+        foreach (range(1,100) as $index) {
             User::create(['name'    => $faker->name, 
                           'email'   => $faker->email, 
                           'password'=> bcrypt('secret')]);
