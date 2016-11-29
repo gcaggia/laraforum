@@ -14,6 +14,9 @@ class CreatePostsPollsTable extends Migration
     {
         Schema::create('postsPolls', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id')->unsigned();
+            $table->integer('category_id')->unsigned();
+            $table->text('title');
             $table->timestamps();
         });
     }
