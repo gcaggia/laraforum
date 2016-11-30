@@ -19,7 +19,9 @@ class PostsPoolsTableSeeder extends Seeder
         // Fake Topics
         $faker = Faker::create();
 
-        foreach (range(1,5) as $index) {
+        $nbCategories = DB::table('categories')->count();
+
+        foreach (range(1, $nbCategories) as $index) {
 
         	$category = DB::table('categories')->where('id', $index)->first();
 
