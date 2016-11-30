@@ -18,7 +18,7 @@ class PostsTableSeeder extends Seeder
         // Fake Topics
         $faker = Faker::create();
 
-        $topics = DB::table('postsPolls')->get();
+        $topics = DB::table('topics')->get();
 
         foreach ($topics as $topic) {
 
@@ -37,11 +37,11 @@ class PostsTableSeeder extends Seeder
         		}
         		
         		DB::table('posts')->insert([
-		        	'user_id'       => $user_id, 
-		        	'postsPolls_id' => $topic->id, 
-		        	'content'       => $content, 
-		        	'created_at'    => new DateTime, 
-		        	'updated_at'    => new DateTime,
+		        	'user_id'    => $user_id, 
+		        	'topic_id'   => $topic->id, 
+		        	'content'    => $content, 
+		        	'created_at' => new DateTime, 
+		        	'updated_at' => new DateTime,
 		        ]);
             
         	}

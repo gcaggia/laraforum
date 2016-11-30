@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
         $this->command->info('Categories Table seeded.');
 
         // Posts Polls Table
-        $this->call(PostsPoolsTableSeeder::class);
+        $this->call(TopicsTableSeeder::class);
         $this->command->info('PostsPools Table seeded.');
 
         // Posts Table
