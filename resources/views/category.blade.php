@@ -12,4 +12,12 @@
 <!-- content of the page -->
 @section('main-content')
     <p>{{ $category->description }}</p>
+    <hr>
+    <div class="list-group">
+    	@foreach ($category->topics as $topic)
+	    	<a href="#" class="list-group-item">
+	    		{{ $topic->title }}
+	    	</a>
+	    @endforeach
+    </div>
 @endsection
