@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 <!-- Title of the page -->
-@section('page-title', 'LaraForum - ')
+@section('page-title', 'LaraForum - ' . $category->title)
 
 <!-- Title of the panel -->
 @section('panel-title', 'LaraForum')
@@ -15,7 +15,8 @@
     <hr>
     <div class="list-group">
     	@foreach ($category->topics as $topic)
-	    	<a href="#" class="list-group-item">
+	    	<a href="{{ $category->title . '/' . $topic->id }}" 
+	    	   class="list-group-item">
 	    		{{ $topic->title }}
 	    	</a>
 	    @endforeach

@@ -11,7 +11,7 @@ class CategoryController extends Controller
 {
     public function index($pcategory)
     {	
-    	$category = Category::where('id', 1)->first();
+    	$category = Category::where('title', $pcategory)->first();
     	
     	if ($category) {
     		return view('category', compact('category'));

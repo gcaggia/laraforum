@@ -25,7 +25,7 @@ Route::get('/', function () {
 });
 
 Route::get('/{category}', 'CategoryController@index');
-
+Route::get('/{category}/{topic}', 'TopicController@index');
 
 
 
