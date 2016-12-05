@@ -20,7 +20,7 @@ Route::get('/', function () {
 	// $categories = DB::table('categories')->get();
 	$categories = App\Category::all();
 
-    return view('welcome', compact('categories'));
+    return view('homepage', compact('categories'));
 
 });
 
