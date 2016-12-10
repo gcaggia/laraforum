@@ -5834,4 +5834,9 @@ button.close {
 h1, h2, h3, h4, h5, h6, a {
   color: #033769; }
 
+section.categories {
+  margin-top: 20px; }
+  section.categories .container {
+    padding: 0px 50px; }
+
 /*# sourceMappingURL=app.css.map */

@@ -15,14 +15,8 @@
 Route::auth();
 Route::get('/home', 'HomeController@index');
 
-Route::get('/', function () {
+Route::get('/', 'PageController@homePage');
 
-	// $categories = DB::table('categories')->get();
-	$categories = App\Category::all();
-
-    return view('homepage', compact('categories'));
-
-});
 
 Route::get('/{category}', 'CategoryController@index');
 Route::get('/{category}/{topic}', 'TopicController@index');

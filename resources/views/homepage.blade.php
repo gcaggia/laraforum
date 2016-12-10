@@ -1,16 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
-	<section class="header">
+	<section class="title">
 		<div class="container">
 			<h1>Welcome on LaraForum</h1>
+			<p>Forum on topics of tomorrow</p>
+		</div>
+	</section>
+	<section class="categories">
+		<div class="container">
 			<div class="row">
 				<div class="col-md-4">
 					<div class="panel panel-default">
-						<div class="panel-body">
-							<img src="images/project1.jpg" class="img-responsive">
-							<h3>PROJECT NAME</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						<div class="panel-body text-center">
+							<img src="images/science.jpg" class="img-responsive">
+							<h2>Science</h2>
+							
 						</div>
 					</div>
 				</div>

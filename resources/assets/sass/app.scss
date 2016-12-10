@@ -6,5 +6,16 @@
 $colorBlueText: #033769;
 
 h1, h2, h3, h4, h5, h6, a {
-	color: $colorBlueText;
+	color: $colorBlueText;	
+}
+
+
+section.categories {
+	
+	margin-top: 20px;
+
+	.container {
+		padding: 0px 50px;
+	}
+
 }
