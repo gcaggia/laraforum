@@ -10,33 +10,19 @@
 	<section class="categories">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-4">
-					<div class="panel panel-default">
-						<div class="panel-body text-center">
-							<img src="images/science.jpg" class="img-responsive">
-							<h2>Science</h2>
-							
+
+				@foreach($categories as $categorie)
+		            <div class="col-sm-6 col-md-4">
+						<div class="panel panel-default">
+							<div class="panel-body text-center">
+								<img src="images/{{$categorie->title}}.jpg" 
+								     class="img-responsive">
+								<h2>{{ $loop->count }} - {{$categorie->title}}</h2>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="panel panel-default">
-						<div class="panel-body">
-							<img src="images/project2.jpg" class="img-responsive">
-							<h3>PROJECT NAME</h3>
-							<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="panel panel-default">
-						<div class="panel-body">
-							<img src="images/project3.jpg" class="img-responsive">
-							<h3>PROJECT NAME</h3>
-							<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur ex ea commodo.</p>
-						</div>
-					</div>
-				</div>
+		        @endforeach
+				
 			</div> <!-- End row -->
 		</div> <!-- End Container -->
 	</section>

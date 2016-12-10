@@ -23,8 +23,11 @@ class CategoriesTableSeeder extends Seeder
         Category::create(['title'       => 'Business', 
         	              'description' => 'Posts about Business']);
 
-        Category::create(['title'       => 'Economy', 
-        	              'description' => 'Posts about Economy']);
+        Category::create(['title'       => 'Innovation', 
+                          'description' => 'Posts about Innovation']);
+
+        Category::create(['title'       => 'Finance', 
+        	              'description' => 'Posts about Finance']);
 
         Category::create(['title'       => 'Other', 
         	              'description' => 'Posts about other subjects']);
