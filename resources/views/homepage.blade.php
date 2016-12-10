@@ -12,15 +12,31 @@
 			<div class="row">
 
 				@foreach($categories as $categorie)
+
+					@if ($loop->iteration%2==1)
+						<div class="clearfix visible-sm-block"></div>
+					@elseif($loop->iteration%4==0)
+						<div class="clearfix visible-md-block"></div>
+					@endif
+
+
+
 		            <div class="col-sm-6 col-md-4">
 						<div class="panel panel-default">
 							<div class="panel-body text-center">
-								<img src="images/{{$categorie->title}}.jpg" 
+								<a href="/{{$categorie->title}}">
+									<img src="images/{{$categorie->title}}.jpg" 
 								     class="img-responsive">
-								<h2>{{ $loop->count }} - {{$categorie->title}}</h2>
+								</a>
+								<h2>
+									<a href="/{{$categorie->title}}">
+										{{ $loop->iteration }} - {{$categorie->title}}
+									</a>
+								</h2>
 							</div>
 						</div>
 					</div>
+
 		        @endforeach
 				
 			</div> <!-- End row -->
