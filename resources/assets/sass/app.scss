@@ -4,9 +4,18 @@
 @import "resources/assets/sass/bootswatch/_bootswatch.scss";
 
 $colorBlueText: #033769;
+$colorFooter: #2A2730;
 
 h1, h2, h3, h4, h5, h6, a {
 	color: $colorBlueText;	
+}
+
+section.title {
+
+	.container {
+		padding: 0px 50px;
+	}
+
 }
 
 
@@ -18,4 +27,40 @@ section.categories {
 		padding: 0px 50px;
 	}
 
+	.thumbnail {
+		padding:0;
+	}
+
+	.thumbnail .caption h2 {
+		margin-top: 10px;
+	}
+
+	.thumbnail .caption h2 a:hover {
+		text-decoration: none;
+	}
+
 }
+
+
+footer {
+	
+	margin-top: 50px;
+    padding: 30px 0;
+    background-color: $colorFooter;
+    color: white;
+    line-height: 100px;
+
+    p, a {
+    	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    	font-size: 17px;
+    	font-weight: 400;
+    }
+
+    .nav-footer li {
+	    margin-left: 10px;
+	}
+
+}
+
+
+

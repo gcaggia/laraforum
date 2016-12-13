@@ -5834,9 +5834,31 @@ button.close {
 h1, h2, h3, h4, h5, h6, a {
   color: #033769; }
 
+section.title .container {
+  padding: 0px 50px; }
+
 section.categories {
   margin-top: 20px; }
   section.categories .container {
     padding: 0px 50px; }
+  section.categories .thumbnail {
+    padding: 0; }
+  section.categories .thumbnail .caption h2 {
+    margin-top: 10px; }
+  section.categories .thumbnail .caption h2 a:hover {
+    text-decoration: none; }
+
+footer {
+  margin-top: 50px;
+  padding: 30px 0;
+  background-color: #2A2730;
+  color: white;
+  line-height: 100px; }
+  footer p, footer a {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 17px;
+    font-weight: 400; }
+  footer .nav-footer li {
+    margin-left: 10px; }
 
 /*# sourceMappingURL=app.css.map */

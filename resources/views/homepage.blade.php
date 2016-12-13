@@ -22,19 +22,19 @@
 
 
 		            <div class="col-sm-6 col-md-4">
-						<div class="panel panel-default">
-							<div class="panel-body text-center">
-								<a href="/{{$categorie->title}}">
-									<img src="images/{{$categorie->title}}.jpg" 
-								     class="img-responsive">
-								</a>
+
+		            	<div class="thumbnail">
+		            		<a href="/{{$categorie->title}}">
+				            	<img src="images/{{$categorie->title}}.jpg">
+				            </a>
+							<div class="caption text-center">
 								<h2>
 									<a href="/{{$categorie->title}}">
-										{{ $loop->iteration }} - {{$categorie->title}}
+										{{$categorie->title}}
 									</a>
-								</h2>
+								</h2>									
 							</div>
-						</div>
+				        </div>
 					</div>
 
 		        @endforeach
