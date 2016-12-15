@@ -81,3 +81,35 @@ footer {
 
 }
 
+.row-post {
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	/* padding: 30px; */
+	margin-bottom: 20px;
+
+	.img-user {
+		margin-bottom: 10px;
+	}
+
+	.col-xs-3 {
+		border-right: 1px solid #ccc; 
+	}
+
+	.wrapper-user {
+		padding-top: 15px;
+	}
+	
+	.wrapper-post-content {
+		/* padding: 30px; */
+	}
+
+	.post-metadata {
+		padding-top: 5px;
+	}
+
+	.post-text {
+		padding: 30px 30px 30px 0px;
+	}
+
+}
+

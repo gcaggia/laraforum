@@ -5870,4 +5870,22 @@ footer {
   .table-topics h3 a {
     color: #434242; }
 
+.row-post {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  /* padding: 30px; */
+  margin-bottom: 20px; }
+  .row-post .img-user {
+    margin-bottom: 10px; }
+  .row-post .col-xs-3 {
+    border-right: 1px solid #ccc; }
+  .row-post .wrapper-user {
+    padding-top: 15px; }
+  .row-post .wrapper-post-content {
+    /* padding: 30px; */ }
+  .row-post .post-metadata {
+    padding-top: 5px; }
+  .row-post .post-text {
+    padding: 30px 30px 30px 0px; }
+
 /*# sourceMappingURL=app.css.map */

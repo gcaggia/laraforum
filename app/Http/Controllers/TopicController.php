@@ -11,7 +11,10 @@ class TopicController extends Controller
     public function index($pctagory, $ptopic)
     {	
     	
-    	$topic = Topic::where('id', $ptopic)->first();
+        $topic = Topic::where('id', $ptopic)
+                      ->first()
+                      ->load('user', 'posts.user.posts');
+
     	
     	if ($topic) {
     		return view('posts', compact('topic'));
