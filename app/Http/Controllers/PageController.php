@@ -10,9 +10,9 @@ class PageController extends Controller
 {
     public function homePage()
     {
-    	// $categories = DB::table('categories')->get();
-		$categories = Category::all();
+        // $categories = DB::table('categories')->get();
+        $categories = Category::all();
 
-	    return view('homepage', compact('categories'));
+        return view('homepage', compact('categories'));
     }
 }

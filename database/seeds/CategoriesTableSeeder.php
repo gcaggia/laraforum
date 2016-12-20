@@ -15,22 +15,22 @@ class CategoriesTableSeeder extends Seeder
         DB::table('categories')->truncate();
 
         Category::create(['title'       => 'Science', 
-        	              'description' => 'Posts about Science']);
+                          'description' => 'Posts about Science']);
 
         Category::create(['title'       => 'Computer', 
-        	              'description' => 'Posts about Computer']);
+                          'description' => 'Posts about Computer']);
 
         Category::create(['title'       => 'Business', 
-        	              'description' => 'Posts about Business']);
+                          'description' => 'Posts about Business']);
 
         Category::create(['title'       => 'Innovation', 
                           'description' => 'Posts about Innovation']);
 
         Category::create(['title'       => 'Finance', 
-        	              'description' => 'Posts about Finance']);
+                          'description' => 'Posts about Finance']);
 
         Category::create(['title'       => 'Other', 
-        	              'description' => 'Posts about other subjects']);
+                          'description' => 'Posts about other subjects']);
 
     }
 }

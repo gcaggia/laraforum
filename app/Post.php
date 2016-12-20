@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
 
-	/**
+    /**
      * Get the user that wrote the post.
      */
     public function user()

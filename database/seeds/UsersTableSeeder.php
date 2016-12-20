@@ -18,8 +18,8 @@ class UsersTableSeeder extends Seeder
 
         // Real user : me
         User::create(['name'    => env('NAME_PERSO'), 
-        		          'email'   => env('MAIL_PERSO'), 
-        		          'password'=> bcrypt(env('NAME_PERSO'))]);
+                          'email'   => env('MAIL_PERSO'), 
+                          'password'=> bcrypt(env('NAME_PERSO'))]);
 
         // Fake users 
         $faker = Faker::create();

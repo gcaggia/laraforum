@@ -5,14 +5,14 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class Topic extends Model
-{	
+{   
 
-	/**
+    /**
      * Get the posts for the topic.
      */
     public function posts()
     {
-    	return $this->hasMany(Post::class);
+        return $this->hasMany(Post::class);
     }
 
 

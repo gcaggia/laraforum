@@ -1,0 +1,111 @@
+links: 
+
+http://www.bootply.com/veIbbTJi4n
+
+
+---------------------------------------------
+
+<?php
+
+php artisan help make:migration
+php artisan make:migration create_categories_table --create=categories
+php artisan migrate
+
+php artisan tinker
+
+php artisan make:model Category
+
+php artisan route:list
+
+php artisan make:controller CategoryController 
+
+
+php artisan make:seeder CategoryTableSeeder
+php artisan db:seed
+php artisan migrate:refresh --seed
+
+php artisan make:migration create_posts_table --create=posts
+php artisan make:seeder PostsTableSeeder
+
+php artisan make:migration create_postsPolls_table --create=postsPolls
+php artisan make:seeder PostsPoolsTableSeeder
+
+composer dump-autoload
+
+php artisan migrate:refresh --seed
+
+npm install --no-bin-links
+npm install --no-bin-links --global gulp-cli
+
+sudo ppa-purge ppa_name
+sudo apt-get purge php.*
+
+
+------------------------------
+composer install -o --no-dev
+php artisan optimize --force
+php artisan config:cache
+php artisan route:cache
+------------------------------
+php artisan config:cache
+php artisan config:clear
+
+----------------------------------------------------------
+------ Tinker / php artisan tinker
+----------------------------------------------------------
+
+ 2+2
+ 4+3
+ exit
+ \DB::select('show tables');
+ \Schema::getColumnListing('categories');
+ DB::table('categories')->insert(['title' => 'Science', 'description' => 'Posts about Science', 'created_at' => new DateTime, 'updated_at' => new DateTime]);
+ DB::table('categories')->insert(['title' => 'Computer', 'description' => 'Posts about Computer', 'created_at' => new DateTime, 'updated_at' => new DateTime]);
+ DB::table('categories')->insert(['title' => 'Business', 'description' => 'Posts about Business', 'created_at' => new DateTime, 'updated_at' => new DateTime]);
+ DB::table('categories')->insert(['title' => 'Economy', 'description' => 'Posts about Economy', 'created_at' => new DateTime, 'updated_at' => new DateTime]);
+ DB::table('categories')->insert(['title' => 'Other', 'description' => 'Posts about other subjects', 'created_at' => new DateTime, 'updated_at' => new DateTime]);
+
+\Schema::getColumnListing('categories');
+DB::table('categories')
+DB::table('categories')->get()
+DB::table('categories')->where('title', 'Business')->first()
+DB::table('categories')->get()
+compact(DB::table('categories')->get())
+$categories = DB::table('categories')->get();
+$categories
+compact('categories')
+history
+
+App\Category::all()
+
+App\Category::count();
+
+DB::listen(function($sql) { var_dump($sql->query); });
+
+$category = App\Category::first();
+$category->topics();
+
+App\Post::where('user_id', 1)->get()
+App\User::first()->load('posts');
+
+App\User::first()->load('posts')->posts->count();
+App\Post::where('user_id', 1)->count()
+
+App\Topic::first()->load('posts.user', 'user')
+
+----------------------------------------------------------
+------ php code
+----------------------------------------------------------
+
+Route::get('/mail', function () {
+
+    $data = [
+        'title'   => 'welcome',
+        'content' => 'A message to say hello !'
+    ];
+
+    Mail::send('email.welcome', $data, function($message){
+        $message->to(env('MAIL_PERSO'), 'laraforum')->subject('Welcome to Laraforum');
+    });
+
+});

@@ -23,20 +23,20 @@ class TopicsTableSeeder extends Seeder
 
         foreach (range(1, $nbCategories) as $index) {
 
-        	$category = DB::table('categories')->where('id', $index)->first();
+            $category = DB::table('categories')->where('id', $index)->first();
 
-        	foreach (range(1,6) as $subIndex) {
+            foreach (range(1,6) as $subIndex) {
 
-        		DB::table('topics')->insert([
-		        	'user_id'     => mt_rand(1,100), 
-		        	'category_id' => $index, 
-		        	'title' => $category->title . ' on ' 
-		        	   . $faker->sentence($nbWords = 4, $variableNbWords = true), 
-		        	'created_at'  => new DateTime, 
-		        	'updated_at'  => new DateTime,
-		        ]);
+                DB::table('topics')->insert([
+                    'user_id'     => mt_rand(1,100), 
+                    'category_id' => $index, 
+                    'title' => $category->title . ' on ' 
+                       . $faker->sentence($nbWords = 4, $variableNbWords = true), 
+                    'created_at'  => new DateTime, 
+                    'updated_at'  => new DateTime,
+                ]);
             
-        	}
+            }
             
         }
     }
