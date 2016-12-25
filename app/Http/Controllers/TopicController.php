@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace LaraForum\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests;
-use App\Topic;
+use LaraForum\Http\Requests;
+use LaraForum\Topic;
 
 class TopicController extends Controller
 {

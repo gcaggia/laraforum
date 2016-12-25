@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace LaraForum\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests;
-use App\Category;
+use LaraForum\Http\Requests;
+use LaraForum\Category;
 
 class PageController extends Controller
 {

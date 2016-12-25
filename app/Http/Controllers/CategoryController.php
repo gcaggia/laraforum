@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace LaraForum\Http\Controllers;
 
-use App\Category;
+use LaraForum\Category;
 use Illuminate\Http\Request;
-use App\Http\Requests;
+use LaraForum\Http\Requests;
 
 
 class CategoryController extends Controller
