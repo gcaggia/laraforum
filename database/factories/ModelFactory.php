@@ -15,10 +15,17 @@
 $factory->define(LaraForum\User::class, function (Faker\Generator $faker) {
     static $password;
 
+    $nbImages    = count(File::files('./public/images/user_images'));
+    $FolderImage = '/images/user_images/';
+
     return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'password' => $password ?: $password = bcrypt('secret'),
+        'name'           => $faker->name,
+        'email'          => $faker->unique()->safeEmail,
+        'password'       => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
+        'profil_image'   => $FolderImage 
+                             . 'image' 
+                             . mt_rand(1, $nbImages)
+                             . '.jpg',
     ];
 });

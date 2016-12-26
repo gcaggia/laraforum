@@ -22,21 +22,7 @@ class UsersTableSeeder extends Seeder
                       'password'=> bcrypt(env('NAME_PERSO'))]);
 
         // Fake users 
-        $faker = Faker::create();
-
-        $nbImages = count(File::files('./public/images/user_images'));
-        $FolderImage = '/images/user_images/';
-
-        foreach (range(1,100) as $index) {
-            User::create(['name'         => $faker->name, 
-                          'email'        => $faker->email, 
-                          'password'     => bcrypt('secret'),
-                          'profil_image' => $FolderImage 
-                                              . 'image' 
-                                              . mt_rand(1, $nbImages)
-                                              . '.jpg'
-                         ]);
-        }
+        factory(LaraForum\User::class, 100)->create();
 
     }
 }
