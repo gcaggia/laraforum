@@ -19,17 +19,15 @@
 						<div class="clearfix visible-md-block"></div>
 					@endif
 
-
-
 		            <div class="col-sm-6 col-md-4">
 
 		            	<div class="thumbnail">
-		            		<a href="/{{$categorie->title}}">
+		            		<a href="/{{$categorie->slug}}">
 				            	<img src="images/{{$categorie->title}}.jpg">
 				            </a>
 							<div class="caption text-center">
 								<h2>
-									<a href="/{{$categorie->title}}">
+									<a href="/{{$categorie->slug}}">
 										{{$categorie->title}}
 									</a>
 								</h2>									

@@ -22,7 +22,8 @@
     		    	<tr>
     		    		<td>
     		    			<h3>
-    		    				<a href="{{ $category->title . '/' . $topic->id }}" 
+    		    				<a href="{{ $category->slug 
+                                            . '/' . $topic->topic_slug }}" 
     					    	   class="">
     					    		{{ $topic->title }}
     					    	</a>

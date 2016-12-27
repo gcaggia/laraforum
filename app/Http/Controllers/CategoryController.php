@@ -9,9 +9,9 @@ use LaraForum\Http\Requests;
 
 class CategoryController extends Controller
 {
-    public function index($pcategory)
+    public function index($category_slug)
     {   
-        $category = Category::where('title', $pcategory)->first();
+        $category = $category_slug;
         
         if ($category) {
             return view('category', compact('category'));

@@ -27,11 +27,17 @@ class TopicsTableSeeder extends Seeder
 
             foreach (range(1,6) as $subIndex) {
 
+                $title = $category->title 
+                         . ' on ' 
+                         . $faker->unique()
+                                 ->sentence($nbWords = 4, 
+                                            $variableNbWords = true);
+
                 DB::table('topics')->insert([
                     'user_id'     => mt_rand(1,100), 
-                    'category_id' => $index, 
-                    'title' => $category->title . ' on ' 
-                       . $faker->sentence($nbWords = 4, $variableNbWords = true), 
+                    'category_id' => $index,
+                    'topic_slug'  => str_slug($title),
+                    'title'       => $title, 
                     'created_at'  => new DateTime, 
                     'updated_at'  => new DateTime,
                 ]);

@@ -8,14 +8,10 @@ use LaraForum\Topic;
 
 class TopicController extends Controller
 {
-    public function index($pctagory, $ptopic)
+    public function index($pctagory, $topic_slug)
     {   
-        
-        $topic = Topic::where('id', $ptopic)
-                      ->first()
-                      ->load('user', 'posts.user.posts');
+        $topic = $topic_slug;
 
-        
         if ($topic) {
             return view('posts', compact('topic'));
         } else {

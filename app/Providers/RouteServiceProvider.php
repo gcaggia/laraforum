@@ -23,7 +23,17 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+
+        \Route::bind('category_slug', function($category_slug) {
+            return \LaraForum\Category::where('slug', $category_slug)
+                                        ->firstOrFail();
+        });
+
+        \Route::bind('topic_slug', function($topic_slug) {
+            return \LaraForum\Topic::where('topic_slug', $topic_slug)
+                                     ->firstOrFail()
+                                     ->load('user', 'posts.user.posts');
+        });
 
         parent::boot();
     }

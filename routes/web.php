@@ -17,6 +17,6 @@ Route::get('/home', 'HomeController@index');
 
 Route::get('/', 'PageController@homePage');
 
-Route::get('/{category}', 'CategoryController@index');
-Route::get('/{category}/{topic}', 'TopicController@index');
+Route::get('/{category_slug}', 'CategoryController@index');
+Route::get('/{category_slug}/{topic_slug}', 'TopicController@index');
 
