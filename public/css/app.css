@@ -7907,16 +7907,22 @@ footer .nav-footer li {
   margin-bottom: 10px;
 }
 
+.row-post .col-xs-3, .row-post .col-xs-9 {
+  padding: 0;
+}
+
 .row-post .col-xs-3 {
   border-right: 1px solid #ccc;
 }
 
 .row-post .wrapper-user {
-  padding-top: 15px;
+  background-color: #e8eef4;
+  padding: 15px;
 }
 
 .row-post .wrapper-post-content {
-  /* padding: 30px; */
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .row-post .post-metadata {

@@ -106,16 +106,22 @@ footer {
         margin-bottom: 10px;
     }
 
+    .col-xs-3, .col-xs-9 {
+        padding: 0;
+    }
+
     .col-xs-3 {
         border-right: 1px solid #ccc; 
     }
 
     .wrapper-user {
-        padding-top: 15px;
+        background-color: #e8eef4;
+        padding: 15px;
     }
     
     .wrapper-post-content {
-        /* padding: 30px; */
+        padding-left: 15px;
+        padding-right: 15px;
     }
 
     .post-metadata {
