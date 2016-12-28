@@ -15,8 +15,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/', 'PageController@homePage');
+Route::get('/', 'PageController@homePage')->name('homepage');
 
-Route::get('/{category_slug}', 'CategoryController@index');
-Route::get('/{category_slug}/{topic_slug}', 'TopicController@index');
+Route::get('/{category_slug}', 'CategoryController@index')->name('category');
+Route::get('/{category_slug}/{topic_slug}', 
+           'TopicController@index')->name('topic');
 

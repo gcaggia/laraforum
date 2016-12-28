@@ -4,6 +4,7 @@
 @section('content')
 	<section class="title-page">
 		<div class="container">
+			{!! Breadcrumbs::render('topic', $topic->category->slug, $topic->topic_slug) !!}
 			<h1>{{ $topic->title }}</h1>
 			<p>{{ $topic->description }}</p>
 		</div>
@@ -11,8 +12,10 @@
 
     <section>
     	<div class="container">
-
-	    	@foreach ($topic->posts as $post)
+			<div class="pagination-post text-center">
+				{{$posts->links()}}
+			</div>
+	    	@foreach ($posts as $post)
 	    		<div class="row row-post">
 	    			<div class="col-xs-3">
 	    				<div class="wrapper-user">
@@ -44,7 +47,9 @@
 			    					}}
 	    						</div>
 	    						<div class="pull-right">
-	    							<a href="#">#{{ $loop->iteration }}</a>
+	    							<a href="#">
+	    								#{{ $loop->iteration + $nbPostsBefore }}
+	    							</a>
 	    						</div>
 	    						<div class="clearfix"></div>
 	    					</div>
@@ -55,7 +60,9 @@
 	    			</div>
 	    		</div>
 		    @endforeach
-    		
+    		<div class="pagination-part text-center">
+				{{$posts->links()}}
+			</div>
     	</div>
     </section>   
 @endsection

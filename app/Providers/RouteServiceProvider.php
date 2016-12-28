@@ -32,7 +32,8 @@ class RouteServiceProvider extends ServiceProvider
         \Route::bind('topic_slug', function($topic_slug) {
             return \LaraForum\Topic::where('topic_slug', $topic_slug)
                                      ->firstOrFail()
-                                     ->load('user', 'posts.user.posts');
+                                     ->load('category', 'user', 
+                                            'posts.user.posts');
         });
 
         parent::boot();
