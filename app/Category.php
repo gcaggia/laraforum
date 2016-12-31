@@ -1,6 +1,6 @@
 <?php
 
-namespace LaraForum;
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 

@@ -10,7 +10,7 @@
 		</div>
 	</section>
 
-    <section>
+    <section class="posts-list">
     	<div class="container">
 			<div class="pagination-post text-center">
 				{{$posts->links()}}
@@ -63,6 +63,18 @@
     		<div class="pagination-part text-center">
 				{{$posts->links()}}
 			</div>
+    	</div>
+    </section>
+    <section class="post-answer">
+    	<div class="container">
+    		<form action="">
+    			<div class="form-group">
+    				<textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
+    			</div>
+    			<div class="form-group text-center">
+    				<button class="btn btn-primary">Submit</button>
+    			</div>
+    		</form>
     	</div>
     </section>   
 @endsection

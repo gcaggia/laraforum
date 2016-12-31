@@ -1,6 +1,6 @@
 <?php
 
-namespace LaraForum\Providers;
+namespace App\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -14,7 +14,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'LaraForum\Http\Controllers';
+    protected $namespace = 'App\Http\Controllers';
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -25,12 +25,12 @@ class RouteServiceProvider extends ServiceProvider
     {
 
         \Route::bind('category_slug', function($category_slug) {
-            return \LaraForum\Category::where('slug', $category_slug)
+            return \App\Category::where('slug', $category_slug)
                                         ->firstOrFail();
         });
 
         \Route::bind('topic_slug', function($topic_slug) {
-            return \LaraForum\Topic::where('topic_slug', $topic_slug)
+            return \App\Topic::where('topic_slug', $topic_slug)
                                      ->firstOrFail()
                                      ->load('category', 'user', 
                                             'posts.user.posts');

@@ -12,7 +12,7 @@ Breadcrumbs::register('category', function($breadcrumbs, $category)
 {
     // dd($category);
 
-    $category = \LaraForum\Category::where('slug', $category)
+    $category = \App\Category::where('slug', $category)
                                      ->firstOrFail();
 
     $breadcrumbs->parent('home');
@@ -22,7 +22,7 @@ Breadcrumbs::register('category', function($breadcrumbs, $category)
 // Home > [Category] > [Topic]
 Breadcrumbs::register('topic', function($breadcrumbs, $category, $topic)
 {
-    $topic = \LaraForum\Topic::where('topic_slug', $topic)
+    $topic = \App\Topic::where('topic_slug', $topic)
                                      ->firstOrFail()
                                      ->load('category');
     // dd($topic->category);
