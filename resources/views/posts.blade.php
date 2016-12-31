@@ -67,14 +67,23 @@
     </section>
     <section class="post-answer">
     	<div class="container">
-    		<form action="">
-    			<div class="form-group">
-    				<textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
-    			</div>
-    			<div class="form-group text-center">
-    				<button class="btn btn-primary">Submit</button>
-    			</div>
-    		</form>
+    		@if (Auth::guest())
+                <div class="guest text-center">
+                    <h4>You need to login or register to write a post</h4>
+                    <a class="btn btn-success" href="{{ url('/login') }}">Login</a>
+                    <a class="btn btn-primary" href="{{ url('/register') }}">Register</a>
+                </div>
+            @else
+                <h3>Your post</h3>
+                <form action="">
+                    <div class="form-group">
+                        <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
+                    </div>
+                    <div class="form-group text-center">
+                        <button class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            @endif
     	</div>
     </section>   
 @endsection
