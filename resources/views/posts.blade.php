@@ -75,9 +75,11 @@
                 </div>
             @else
                 <h3>Your post</h3>
-                <form action="">
+                <form action="{{url()->current()}}" method="POST">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="form-group">
-                        <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
+                        <textarea name="post" id="post" cols="30" rows="10" 
+                            class="form-control"></textarea>
                     </div>
                     <div class="form-group text-center">
                         <button class="btn btn-primary">Submit</button>

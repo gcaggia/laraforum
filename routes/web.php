@@ -21,3 +21,4 @@ Route::get('/{category_slug}', 'CategoryController@index')->name('category');
 Route::get('/{category_slug}/{topic_slug}', 
            'TopicController@index')->name('topic');
 
+Route::post('/{category_slug}/{topic_slug}', 'TopicController@addPost')->middleware('auth');

@@ -32,5 +32,13 @@ class Topic extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    /**
+     * Add a new post on the current topic
+     */
+    public function addPost(Post $post)
+    {
+        $this->posts()->save($post);
+    }
     
 }

@@ -5,12 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Topic;
+use App\Post;
 
 class TopicController extends Controller
 {
     public function index(Request $request, $category_slug, $topic_slug)
     {   
-
         $topic = $topic_slug;
         $category = $category_slug;
 
@@ -24,5 +24,18 @@ class TopicController extends Controller
             abort(404);
         }
         
+    }
+
+    public function addPost(Request $request, $category, $topic)
+    {
+        $topic->addPost(
+            new Post(['user_id' => auth()->user()->id,
+                      'content' => $request->post,
+                     ])
+        );
+
+        // $post = new Post();
+        // dd($request->all(), auth()->user(), $post, $category, $topic);
+        return back();
     }
 }
