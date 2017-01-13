@@ -7899,7 +7899,6 @@ footer .nav-footer li {
 .row-post {
   border: 1px solid #ccc;
   border-radius: 5px;
-  /* padding: 30px; */
   margin-bottom: 20px;
 }
 
@@ -7931,6 +7930,14 @@ footer .nav-footer li {
 
 .row-post .post-text {
   padding: 30px 30px 30px 0px;
+}
+
+.row-new-post {
+  border: 1px solid #468847;
+}
+
+.row-new-post .wrapper-user {
+  background-color: #d2e7d1;
 }
 
 /*# sourceMappingURL=app.css.map */

@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'LaraForum') }}</title>
 
     <!-- Styles -->
     <link href="{{ elixir('css/app.css') }}" rel="stylesheet">
@@ -21,6 +21,7 @@
     </script>
 </head>
 <body>
+
 <nav class="navbar navbar-inverse navbar-static-top">
     <div class="container">
         <div class="navbar-header">
@@ -35,7 +36,7 @@
 
             <!-- Branding Image -->
             <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Laravel') }}
+                {{ config('app.name', 'LaraForum') }}
             </a>
         </div>
 
@@ -96,7 +97,9 @@
 </footer>
 
 <!-- Scripts -->
+<script src="/js/import.js"></script>
 <script src="/js/app.js"></script>
+@yield('script')
 
 </body>
 </html>

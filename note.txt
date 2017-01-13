@@ -93,6 +93,9 @@ App\Post::where('user_id', 1)->count()
 
 App\Topic::first()->load('posts.user', 'user')
 
+$topic = App\Topic::first()
+$topic->posts()->orderBy('id', 'desc')->first()
+
 ----------------------------------------------------------
 ------ php code
 ----------------------------------------------------------

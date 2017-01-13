@@ -10,6 +10,9 @@
 	</section>
     <hr>
     <div class="container">
+        <div class="pagination-post text-center">
+                {{ $topics->links() }}
+        </div>
 	    <table class="table table-topics">
         	<thead>
         		<tr>
@@ -19,7 +22,7 @@
         		</tr>
         	</thead>
         	<tbody>
-        		@foreach ($category->topics as $topic)
+        		@foreach ($topics as $topic)
     		    	<tr>
     		    		<td>
     		    			<h3>
@@ -29,27 +32,21 @@
     					    		{{ $topic->title }}
     					    	</a>
     		    			</h3>
-    		    			<p>Created by <a href="#">User</a> - 02-13-2015 03:25 PM</p>
+    		    			<p>Created by <a href="#">{{ $topic->user->name }}</a> - <div class="">{{ $topic->created_at }}</div></p>
     		    		</td>
-    		    		<td>10 Posts</td>
-    		    		<td><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p></td>
+    		    		<td>{{ $topic->posts()->count() }} Posts</td>
+    		    		<td>{{ $topic->posts()->orderBy('id', 'desc')->first()->content }} <br>by <a href="#">{{ $topic->posts()->orderBy('id', 'desc')->first()->user->name }}</a> - {{ $topic->posts()->orderBy('id', 'desc')->first()->created_at }}</td>
     		    	</tr>
     	    	@endforeach
         	</tbody>
 	    </table>
+        <div class="pagination-post text-center">
+                {{ $topics->links() }}
+        </div>
     </div>
 @endsection
 
-<!-- content of the page -->
-<!-- @section('main-content')
-    <p>{{ $category->description }}</p>
-    <hr>
-    <div class="list-group">
-    	@foreach ($category->topics as $topic)
-	    	<a href="{{ $category->title . '/' . $topic->id }}" 
-	    	   class="list-group-item">
-	    		{{ $topic->title }}
-	    	</a>
-	    @endforeach
-    </div>
-@endsection -->
+@section('script')
+    <script type="text/javascript" src="{!! asset('js/moment.min.js') !!}"></script>
+    <script type="text/javascript" src="{!! asset('js/category.js') !!}"></script>
+@endsection

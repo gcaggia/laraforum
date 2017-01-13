@@ -38,7 +38,7 @@ class Topic extends Model
      */
     public function addPost(Post $post)
     {
-        $this->posts()->save($post);
+        return $this->posts()->save($post);
     }
     
 }

@@ -99,7 +99,6 @@ footer {
 .row-post {
     border: 1px solid #ccc;
     border-radius: 5px;
-    /* padding: 30px; */
     margin-bottom: 20px;
 
     .img-user {
@@ -134,3 +133,12 @@ footer {
 
 }
 
+.row-new-post {
+
+    border: 1px solid #468847;
+
+    .wrapper-user {
+        background-color: #d2e7d1;
+    }
+
+}
