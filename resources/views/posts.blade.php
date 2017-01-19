@@ -19,7 +19,16 @@
                             data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                     </button>
-                    Your post has been added to the topic
+                    Your post has been added to the topic !
+                </div>
+            @elseif (session('Topic'))
+                <div class="alert alert-success alert-dismissible" 
+                     role="alert">
+                    <button type="button" class="close" 
+                            data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                    </button>
+                    Your Topic has been created !
                 </div>
             @endif
 			<div class="pagination-post text-center">
@@ -104,7 +113,7 @@
             @else
                 <h3>Your post</h3>
                 <form action="{{url()->current()}}" method="POST">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="form-group 
                         {{ count($errors) ? 'has-error' : ''}}">
                         <textarea name="post" id="post" cols="30" rows="10" 

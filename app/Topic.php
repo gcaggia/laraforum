@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Topic extends Model
 {   
 
+    protected $fillable = ['user_id', 'topic_slug', 'title'];
+
     /**
      * Get the posts for the topic.
      */

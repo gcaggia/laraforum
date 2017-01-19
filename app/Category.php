@@ -21,5 +21,11 @@ class Category extends Model
     {
         return $this->hasMany(Topic::class);
     }
+
+    
+    public function addTopic(Topic $topic)
+    {
+        return $this->topics()->save($topic);
+    }
     
 }

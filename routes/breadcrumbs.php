@@ -19,6 +19,15 @@ Breadcrumbs::register('category', function($breadcrumbs, $category)
     $breadcrumbs->push($category->title, route('category', $category->slug));
 });
 
+// Home > [Category] > New Topic
+Breadcrumbs::register('categoryNewTopic', function($breadcrumbs, $category)
+{
+    // dd($category);
+
+    $breadcrumbs->parent('category', $category->slug);
+    $breadcrumbs->push('New Topic', route('create_topic', $category));
+});
+
 // Home > [Category] > [Topic]
 Breadcrumbs::register('topic', function($breadcrumbs, $category, $topic)
 {

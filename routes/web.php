@@ -17,8 +17,17 @@ Route::get('/home', 'HomeController@index');
 
 Route::get('/', 'PageController@homePage')->name('homepage');
 
-Route::get('/{category_slug}', 'CategoryController@index')->name('category');
-Route::get('/{category_slug}/{topic_slug}', 
-           'TopicController@index')->name('topic');
+Route::get('/{category_slug}', 'CategoryController@index')
+    ->name('category');
 
-Route::post('/{category_slug}/{topic_slug}', 'TopicController@addPost')->middleware('auth');
+Route::get('/{category_slug}/create', 'CategoryController@newTopic')
+    ->name('create_topic');
+
+Route::post('/{category_slug}/create', 'CategoryController@addTopic')
+        ->name('create_topic');
+    
+Route::get('/{category_slug}/{topic_slug}', 'TopicController@index')
+    ->name('topic');
+
+Route::post('/{category_slug}/{topic_slug}', 'TopicController@addPost')
+    ->middleware('auth');

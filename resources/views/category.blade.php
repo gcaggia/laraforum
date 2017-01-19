@@ -4,8 +4,15 @@
 	<section class="title-page">
 		<div class="container">
             {!! Breadcrumbs::render('category', $category->slug) !!}
-			<h1>{{ $category->title }}</h1>
-			<p>{{ $category->description }}</p>
+            <div class="row">
+                <div class="col-sm-8">
+                    <h1>{{ $category->title }}</h1>
+                    <p>{{ $category->description }}</p>
+                </div>
+                <div class="col-sm-offset-2 col-sm-1">
+                    <a href="{{ $category->slug }}/create" id="btn-category-add-topic" class="btn btn-info">New Topic</a>
+                </div>
+            </div>
 		</div>
 	</section>
     <hr>

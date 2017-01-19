@@ -7883,6 +7883,10 @@ footer .nav-footer li {
   margin-left: 10px;
 }
 
+#btn-category-add-topic {
+  margin-top: 40px;
+}
+
 .table-topics td {
   vertical-align: middle !important;
 }
