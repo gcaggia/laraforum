@@ -15,5 +15,6 @@ require('laravel-elixir-vue-2');
 
 elixir((mix) => {
     mix.sass('app.scss')
-       .version(['public/css/app.css']);
+       .version(['public/css/app.css'])
+       .copy('node_modules/font-awesome/fonts', 'public/build/fonts');
 });

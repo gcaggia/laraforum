@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
 
-    protected $fillable = ['user_id', 'content'];
+    protected $fillable = ['user_id', 'content', 'quote_post_id'];
 
     /**
      * Get the user that wrote the post.
@@ -24,6 +24,14 @@ class Post extends Model
     public function topic()
     {
         return $this->belongsTo(Topic::class);
+    }
+
+    /**
+     * Get the quote of the post
+     */
+    public function quote()
+    {
+        return $this->belongsTo(Post::class, 'quote_post_id');
     }
 
 }

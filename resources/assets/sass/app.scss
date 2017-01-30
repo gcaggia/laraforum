@@ -11,8 +11,11 @@
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+// Bootswatch import
 @import "resources/assets/sass/bootswatch/_bootswatch.scss";
 
+// font-awesome
+@import "node_modules/font-awesome/scss/font-awesome";
 
 $colorBlueText: #033769;
 $colorFooter: #2A2730;
@@ -133,6 +136,22 @@ footer {
 
     .post-text {
         padding: 30px 30px 30px 0px;
+    }
+
+    .post-number {
+        vertical-align: middle;
+        margin-left: 10px;
+    }
+
+    .post-text-quote {
+        margin: 10px 15px 20px 15px;
+    }
+
+    .text-quote-content {
+        border: 1px solid #ccc;
+        margin-top: 3px;
+        padding: 5px;
+        border-radius: 5px; 
     }
 
 }

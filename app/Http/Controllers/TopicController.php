@@ -18,6 +18,7 @@ class TopicController extends Controller
         $category = $category_slug;
 
         $posts = $topic->posts()->paginate($this->nbPaginate);
+
         $nbPostsBefore = (($request->input('page') ?? 1) - 1) * $this->nbPaginate;
 
         if ($topic) {
@@ -54,9 +55,16 @@ class TopicController extends Controller
                       ->withInput();
         }
 
+        if ($request->postQuoteId != 0) {
+            $post_quote = $request->postQuoteId;    
+        } else {
+            $post_quote = "";    
+        }
+
         $result = $topic->addPost(
-            new Post(['user_id' => auth()->user()->id,
-                      'content' => $request->post,
+            new Post(['user_id'       => auth()->user()->id,
+                      'content'       => $request->post,
+                      'quote_post_id' => $post_quote,
                      ])
         );
 

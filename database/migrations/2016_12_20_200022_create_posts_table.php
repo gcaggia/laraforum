@@ -18,7 +18,13 @@ class CreatePostsTable extends Migration
             $table->integer('user_id')->unsigned()->index();
             $table->integer('topic_id')->unsigned()->index();
             $table->text('content');
+
+            $table->integer('quote_post_id')
+                  ->unsigned()
+                  ->nullable();
+
             $table->timestamps();
+            
         });
     }
 

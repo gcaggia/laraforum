@@ -29,6 +29,11 @@ function scrollDownIfParam(param, position) {
 
 }
 
+function unquote() {
+    $('#quote_post').hide();
+    $( "input[name*='postQuoteId']" ).val(0);
+}
+
 $(document).ready(function() {
 
     scrollDownIfParam('add', '.row-new-post');
@@ -39,6 +44,19 @@ $(document).ready(function() {
     if(result && result == 'true') {
         $('#post').focus();
     }
+
+    $('.btn-quote').click(function() {
+        var id = $(this).attr('id');
+        id = id.split("-")[2];       
+
+        $.getJSON("/post/" + id, function(result) {
+            $('#quote-user').text(result.user);
+            $('#quote-message').text(result.message);
+            $( "input[name*='postQuoteId']" ).val(id);
+            $('#quote_post').show();
+        });
+
+    });
 
 });
 

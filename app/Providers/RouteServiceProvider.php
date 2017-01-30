@@ -33,7 +33,7 @@ class RouteServiceProvider extends ServiceProvider
             return \App\Topic::where('topic_slug', $topic_slug)
                                      ->firstOrFail()
                                      ->load('category', 'user', 
-                                            'posts.user.posts');
+                                            'posts.user.posts', 'posts.quote.user');
         });
 
         parent::boot();

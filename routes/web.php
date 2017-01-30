@@ -13,6 +13,8 @@
 
 Auth::routes();
 
+Route::get('/post/{id}', 'PostController@getAjaxPost');
+
 Route::get('/home', 'HomeController@index');
 
 Route::get('/', 'PageController@homePage')->name('homepage');
@@ -31,3 +33,4 @@ Route::get('/{category_slug}/{topic_slug}', 'TopicController@index')
 
 Route::post('/{category_slug}/{topic_slug}', 'TopicController@addPost')
     ->middleware('auth');
+

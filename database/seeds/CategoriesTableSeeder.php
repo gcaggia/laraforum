@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use LaraForum\Category;
+use App\Category;
 
 class CategoriesTableSeeder extends Seeder
 {

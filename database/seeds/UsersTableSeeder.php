@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use LaraForum\User;
+use App\User;
 
 use Faker\Factory as Faker;
 
@@ -23,7 +23,7 @@ class UsersTableSeeder extends Seeder
                       'password'     => bcrypt(env('NAME_PERSO'))]);
 
         // Fake users 
-        factory(LaraForum\User::class, 100)->create();
+        factory(App\User::class, 100)->create();
 
     }
 }

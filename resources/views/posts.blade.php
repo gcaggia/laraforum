@@ -34,6 +34,7 @@
 			<div class="pagination-post text-center">
 				{{$posts->links()}}
 			</div>
+            {{-- Beginning  of display all posts --}}
 	    	@foreach ($posts as $post)
 	    		<div id="post_{{ $loop->iteration + $nbPostsBefore }}" 
                      class="row row-post 
@@ -70,19 +71,41 @@
 			    					}}
 	    						</div>
 	    						<div class="pull-right">
-	    							<a href="#">
+                                    <button class="btn btn-xs btn-info btn-quote" 
+                                            id="post-quote-{{ $post->id }}">
+                                    <i class="fa fa-quote-left"></i> Quote</button>
+	    							<a class="post-number" href="#">
 	    								#{{ $loop->iteration + $nbPostsBefore }}
 	    							</a>
 	    						</div>
 	    						<div class="clearfix"></div>
 	    					</div>
 	    					<div class="post-text">
+                                @if ($post->quote)
+                                    <div class="post-text-quote">
+                                        
+                                        <span>Quote of </span>
+                                        <strong><span>{{ $post->quote->user->name }} - </span></strong>
+                                        <span>
+                                            {{ 
+                                                (new Carbon\Carbon($post->quote->created_at))
+                                                     ->format('l jS \\of F Y h:i:s A')
+                                            }}
+                                        </span>
+                                        <div class="text-quote-content">
+                                            <i class="fa fa-quote-left"></i>&nbsp
+                                            <span>{{ $post->quote->content }}</span>
+                                        </div>
+    
+                                    </div>
+                                @endif
 	    						{{ $post->content }}
 	    					</div>
 	    				</div>
 	    			</div>
 	    		</div>
 		    @endforeach
+            {{-- End  of display all posts --}}
     		<div class="pagination-part text-center">
 				{{$posts->links()}}
 			</div>
@@ -97,12 +120,14 @@
                             data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                     </button>
+                    <p>Error(s) :</p>
                     <ul>
                         @foreach ($errors->all() as $error)
                             <li>{{ $error }}</li>
                         @endforeach
                     </ul>
                 </div>
+                <hr>
             @endif
     		@if (Auth::guest())
                 <div class="guest text-center">
@@ -112,14 +137,28 @@
                 </div>
             @else
                 <h3>Your post</h3>
+                <div class="alert alert-warning alert-dismissible" 
+                     id="quote_post" role="alert" style="display:none;">
+                    <button type="button" class="close" onclick="unquote()" 
+                            data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div>
+                        <span>You quote the message of </span>
+                        <strong><span id="quote-user">Username</span></strong>
+                        <div>
+                            <i class="fa fa-quote-left"></i>&nbsp
+                            <span id="quote-message">Test</span>
+                        </div>
+                    </div>
+                </div>
                 <form action="{{url()->current()}}" method="POST">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <input type="hidden" name="postQuoteId" value="0">
                     <div class="form-group 
                         {{ count($errors) ? 'has-error' : ''}}">
                         <textarea name="post" id="post" cols="30" rows="10" 
-                            class="form-control ">
-                            {{ old('post') }}
-                        </textarea>
+                            class="form-control ">{{ old('post') }}</textarea>
                     </div>
                     <div class="form-group text-center">
                         <button class="btn btn-primary">Submit</button>
@@ -131,6 +170,8 @@
 @endsection
 
 @section('script')
-    <script type="text/javascript" src="{!! asset('js/moment.min.js') !!}"></script>
-    <script type="text/javascript" src="{!! asset('js/post.js') !!}"></script>
+    <script type="text/javascript" src="{!! asset('js/moment.min.js') !!}">
+    </script>
+    <script type="text/javascript" src="{!! asset('js/post.js') !!}">
+    </script>
 @endsection
