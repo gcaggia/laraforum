@@ -14,15 +14,31 @@
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     static $password;
-
+    
     $nbImages    = count(File::files('./public/images/user_images'));
     $FolderImage = '/images/user_images/';
+    $gender      = rand(1,100)%2;
+    $firstname   = $gender == 0 ? $faker->firstNameMale 
+                                : $faker->firstNameFemale;
+
+    $lastname    = $faker->unique()->lastName;
+    $provider    = rand(1,100)%2 == 0 ? $faker->domainName 
+                                      : $faker->freeEmailDomain;
+
+    $email       = $firstname . '.' . $lastname . '@' . $provider;
+
+    $skills      = implode('|', $faker->words($nb = rand(5, 10), $asText = false));
 
     return [
-        'name'           => $faker->name,
-        'email'          => $faker->unique()->safeEmail,
+        'firstname'      => $firstname,
+        'lastname'       => $lastname,
+        'username'       => $firstname . '.' . $lastname,
+        'email'          => $email,
         'password'       => $password ?: $password = bcrypt('secret'),
         'remember_token' => str_random(10),
+        'country'        => $faker->country,
+        'skills'         => $skills,        
+        'biography'      => $faker->sentences(rand(10,40), $asText = true),
         'profil_image'   => $FolderImage 
                              . 'image' 
                              . mt_rand(1, $nbImages)

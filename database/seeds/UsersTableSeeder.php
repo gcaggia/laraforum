@@ -16,11 +16,22 @@ class UsersTableSeeder extends Seeder
     {
         DB::table('users')->truncate();
 
+        $faker = Faker::create();
+
+        $skills = implode('|', $faker->words($nb = rand(5, 10), $asText = false));
+
         // Real user : me
-        User::create(['name'         => env('NAME_PERSO'), 
+        User::create(['firstname'    => env('FIRSTNAME_PERSO'),
+                      'lastname'     => env('LASTNAME_PERSO'),
+                      'username'     => env('FIRSTNAME_PERSO') 
+                                        . '.' . env('LASTNAME_PERSO'),
                       'profil_image' => env('AVATAR_PERSO'),
                       'email'        => env('MAIL_PERSO'),
-                      'password'     => bcrypt(env('NAME_PERSO'))]);
+
+                      'password'     => bcrypt(env('FIRSTNAME_PERSO')),
+                      'country'      => $faker->country,
+                      'skills'       => $skills,        
+                      'biography'    => $faker->sentences(rand(10,40), $asText = true),]);
 
         // Fake users 
         factory(App\User::class, 100)->create();

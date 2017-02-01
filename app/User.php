@@ -27,6 +27,16 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+        /**
+     * Get members full name
+     * 
+     * @return string
+     */
+    public function getNameAttribute()
+    {
+        return ucfirst($this->firstname) . ' ' . ucfirst($this->lastname);
+    }
+
     /**
      * Get the posts of this user.
      */
