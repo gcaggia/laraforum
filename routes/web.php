@@ -15,7 +15,11 @@ Auth::routes();
 
 Route::get('/post/{id}', 'PostController@getAjaxPost');
 
-Route::get('/user/{user_slug}', 'UserController@profile');
+Route::get('/user/{username}', 'UserController@profile');
+
+Route::get('/user/{username}/edit', 'UserController@editProfile');
+
+Route::post('/user/{username}/edit', 'UserController@updateProfile');
 
 Route::get('/home', 'HomeController@index');
 

@@ -31,9 +31,22 @@ class RouteServiceProvider extends ServiceProvider
 
         \Route::bind('topic_slug', function($topic_slug) {
             return \App\Topic::where('topic_slug', $topic_slug)
-                                     ->firstOrFail()
-                                     ->load('category', 'user', 
-                                            'posts.user.posts', 'posts.quote.user');
+                               ->firstOrFail()
+                               ->load('category', 'user', 
+                                      'posts.user.posts', 
+                                      'posts.quote.user');
+        });
+
+        \Route::bind('username', function($user) {
+            return \App\User::where('username', $user)
+                                  ->firstOrFail()
+                                  ->load(['topics', 'posts'  
+                                        => function($query)
+                                            {
+                                                // $query->latest();
+                                                $query->orderBy('posts.id', 'desc');
+                                            }, 'posts.topic.category' ]);
+
         });
 
         parent::boot();
