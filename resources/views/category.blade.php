@@ -30,6 +30,7 @@
         	</thead>
         	<tbody>
         		@foreach ($topics as $topic)
+                    @php ($lastPost = $topic->posts()->orderBy('id', 'desc')->first())
     		    	<tr>
     		    		<td>
     		    			<h3>
@@ -39,10 +40,10 @@
     					    		{{ $topic->title }}
     					    	</a>
     		    			</h3>
-    		    			<p>Created by <a href="#">{{ $topic->user->name }}</a> - <div class="">{{ $topic->created_at }}</div></p>
+    		    			<p>Created by <a href="/user/{{ $topic->user->username }}">{{ $topic->user->name }}</a> - <div class="">{{ $topic->created_at }}</div></p>
     		    		</td>
     		    		<td>{{ $topic->posts()->count() }} Posts</td>
-    		    		<td>{{ $topic->posts()->orderBy('id', 'desc')->first()->content }} <br>by <a href="#">{{ $topic->posts()->orderBy('id', 'desc')->first()->user->name }}</a> - {{ $topic->posts()->orderBy('id', 'desc')->first()->created_at }}</td>
+    		    		<td>{{ $lastPost->content }} <br>by <a href="/user/{{ $lastPost->user->username }}">{{ $lastPost->user->name }}</a> - {{ $lastPost->created_at }}</td>
     		    	</tr>
     	    	@endforeach
         	</tbody>

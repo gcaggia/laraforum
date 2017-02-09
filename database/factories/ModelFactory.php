@@ -18,10 +18,10 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     $nbImages    = count(File::files('./public/images/user_images'));
     $FolderImage = '/images/user_images/';
     $gender      = rand(1,100)%2;
-    $firstname   = $gender == 0 ? $faker->firstNameMale 
-                                : $faker->firstNameFemale;
+    $firstname   = $gender == 0 ? lcfirst($faker->firstNameMale) 
+                                : lcfirst($faker->firstNameFemale);
 
-    $lastname    = $faker->unique()->lastName;
+    $lastname    = lcfirst($faker->unique()->lastName);
     $provider    = rand(1,100)%2 == 0 ? $faker->domainName 
                                       : $faker->freeEmailDomain;
 

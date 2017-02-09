@@ -13,8 +13,11 @@
             @endforeach
             <div class="nbmessages"> <strong>Number of messages: </strong>{{ $user->posts->count()}}</div>
         </div>
-        <div class="pull-right"><a href="{{ url()->current() . '/edit' }}" class="btn btn-primary">Edit Profile</a></div>
+        @if ($user->isProfileOwner())
+            <div class="pull-right"><a href="{{ url()->current() . '/edit' }}" class="btn btn-primary">Edit Profile</a></div>
+        @endif
         <hr>
+        
         <p class="text-left"><strong>Bio: </strong><br> {{ $user->biography }}</p>
         <br>
     </div>

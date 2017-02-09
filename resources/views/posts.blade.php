@@ -44,11 +44,15 @@
 	    			<div class="col-xs-3"> 
 	    				<div class="wrapper-user">
 	    					<div class="text-center">
-	    						<img class="img-user" 
-	    						     src="{{ $post->user->profil_image }}" 
-	    						     alt="" 
-	    					 		 height="100" width="100">
-		    					<p><strong>{{ $post->user->name }}</strong></p>
+	    						<a href="/user/{{ $post->user->username }}">
+                                    <img class="img-user" 
+                                     src="{{ $post->user->profil_image }}" 
+                                     alt="" 
+                                     height="100" width="100">
+                                </a>
+		    					<a href="/user/{{ $post->user->username }}">
+                                    <p><strong>{{ $post->user->name }}</strong></p>
+                                </a>
 	    					</div>
 		    				<p>Member since : 
 		    					{{ 

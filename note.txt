@@ -96,6 +96,10 @@ App\Topic::first()->load('posts.user', 'user')
 $topic = App\Topic::first()
 $topic->posts()->orderBy('id', 'desc')->first()
 
+use Faker\Factory as Faker;
+$faker = Faker::create();
+$faker->sentences(rand(3,8), $asText = true)
+
 ----------------------------------------------------------
 ------ php code
 ----------------------------------------------------------

@@ -17,9 +17,11 @@ Route::get('/post/{id}', 'PostController@getAjaxPost');
 
 Route::get('/user/{username}', 'UserController@profile');
 
-Route::get('/user/{username}/edit', 'UserController@editProfile');
+Route::get('/user/{username}/edit', 'UserController@editProfile')
+       ->middleware('ProfileOwner');
 
-Route::post('/user/{username}/edit', 'UserController@updateProfile');
+Route::post('/user/{username}/edit', 'UserController@updateProfile')
+       ->middleware('ProfileOwner');
 
 Route::get('/home', 'HomeController@index');
 

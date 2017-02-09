@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Auth;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -15,7 +16,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'country',
+        'firstname', 'lastname', 'username', 'email', 
+        'country', 'skills', 'biography', 'password',
     ];
 
     /**
@@ -27,7 +29,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-        /**
+    /**
      * Get members full name
      * 
      * @return string
@@ -52,6 +54,15 @@ class User extends Authenticatable
     public function topics()
     {
         return $this->hasMany(Topic::class);
+    }
+
+
+    public function isProfileOwner()
+    {   
+        if (Auth::guest())
+            return false;
+        else
+            return (Auth::user()->id == $this->id);
     }
     
 }
