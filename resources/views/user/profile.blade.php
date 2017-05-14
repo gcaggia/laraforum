@@ -5,7 +5,15 @@
 <div class="container profile-page">
     <div class="profile">
         <div class="main-profile text-center">
-            <img src="{{ $user->profil_image }}" name="aboutme" width="140" height="140" border="0" class="img-circle">
+
+            <div class="img-user" style="background-image: url('{{ $user->profil_image }}'); ">
+                <form action="">
+                    <button class="btn btn-xs btn-default btn-img pull-right">
+                        <i class="fa fa-pencil-square-o"></i>
+                    </button>
+                </form>
+            </div>
+            
             <h3 class="media-heading">{{ $user->name }}<small> - {{ $user->country }}</small></h3>
             <span><strong>Skills: </strong></span>
             @foreach (explode('|', $user->skills) as $Skill)

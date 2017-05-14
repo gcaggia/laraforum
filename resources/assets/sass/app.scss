@@ -169,6 +169,21 @@ footer {
 
 // Profile Page
 .profile-page {
+    
+    .main-profile {
+        .img-user {
+            height:140px;
+            width:140px; 
+            margin:auto; 
+            background-size: cover;
+        }
+
+        .btn-img {
+            
+        }
+    }
+    
+
     .nbmessages {
         margin-top: 5px;
     }

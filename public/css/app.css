@@ -11004,6 +11004,13 @@ footer .nav-footer li {
   background-color: #d2e7d1;
 }
 
+.profile-page .main-profile .img-user {
+  height: 140px;
+  width: 140px;
+  margin: auto;
+  background-size: cover;
+}
+
 .profile-page .nbmessages {
   margin-top: 5px;
 }
